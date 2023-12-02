@@ -4,21 +4,21 @@ def aoc1a():
     line_count = 0
     with open('inputs/input1.txt','r') as file:
         lines = [line for line in file]
-        for line in lines:
-            current_code = ""
-            num_count = 0
-            for character in line:
-                if num_count == 2:
-                    break
-                if character.isnumeric():
-                    current_code += character
-                    num_count += 1
+    for line in lines:
+        current_code = ""
+        num_count = 0
+        for character in line:
+            if num_count == 2:
+                break
+            if character.isnumeric():
+                current_code += character
+                num_count += 1
 
-            if len(current_code) == 1:
-                current_code *= 2
-    
-            total += int(current_code)
-            
+        if len(current_code) == 1:
+            current_code *= 2
+
+        total += int(current_code)
+        
     return total
     
 def aoc1b():
@@ -28,26 +28,26 @@ def aoc1b():
     fixed_lines_list = []
     with open('inputs/input1.txt','r') as file:
         lines = [line for line in file]
-        for line in lines:
-            fixed_line = lineToNumHelper(line)
-            fixed_lines_list.append(fixed_line)
-            i += 1
-        for line in fixed_lines_list:
-            current_code = ""
-            num_count = 0
-            line_count += 1
-            for character in line:
-                if num_count == 2:
-                    break
-                if character.isnumeric():
-                    current_code += character
-                    num_count += 1
+    for line in lines:
+        fixed_line = lineToNumHelper(line)
+        fixed_lines_list.append(fixed_line)
+        i += 1
+    for line in fixed_lines_list:
+        current_code = ""
+        num_count = 0
+        line_count += 1
+        for character in line:
+            if num_count == 2:
+                break
+            if character.isnumeric():
+                current_code += character
+                num_count += 1
 
-            if len(current_code) == 1:
-                current_code *= 2
-    
-            total += int(current_code)
-            
+        if len(current_code) == 1:
+            current_code *= 2
+
+        total += int(current_code)
+        
     return total
 
 
