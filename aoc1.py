@@ -138,5 +138,7 @@ def lineToNumHelper(line):
     
     return num_string
 
-print(aoc1a())
-print(aoc1b())
+
+if __name__ == "__main__":
+    print(f"Part 1: {aoc1a()}")
+    print(f"Part 2: {aoc1b()}")
