@@ -7,7 +7,6 @@ def aoc1a():
         for line in lines:
             current_code = ""
             num_count = 0
-            line_count += 1
             for character in line:
                 if num_count == 2:
                     break
@@ -19,20 +18,19 @@ def aoc1a():
                 current_code *= 2
     
             total += int(current_code)
+            
     return total
     
 def aoc1b():
     global sum1
     total = 0
     i = 1
-    line_count = 0
     fixed_lines_list = []
     with open('inputs/input1.txt','r') as file:
         lines = [line for line in file]
         for line in lines:
             fixed_line = lineToNumHelper(line)
             fixed_lines_list.append(fixed_line)
-            print(f"line {i}: {fixed_line}")
             i += 1
         for line in fixed_lines_list:
             current_code = ""
@@ -49,6 +47,7 @@ def aoc1b():
                 current_code *= 2
     
             total += int(current_code)
+            
     return total
 
 
