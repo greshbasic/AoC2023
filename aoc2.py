@@ -1,6 +1,5 @@
 def aoc2a():
     lines_stripped = []
-    games_dict = {}
     elf_bag = [12,13,14]
     id_sum = 0
    
@@ -22,7 +21,6 @@ def aoc2a():
                 break
             
         elf_handful = [0,0,0]
-        
         skip_next = False
         for i in range(len(curr_game_data)):
             if curr_game_data[i] == ";":
@@ -62,10 +60,6 @@ def aoc2a():
     
 def aoc2b():
     
-    # find max r g and b from each game
-    # multiply r * g * b
-    # add that to power
-    
     power = 0
     lines_stripped = []
    
@@ -86,7 +80,6 @@ def aoc2b():
             
         elf_handful = [0,0,0]
         current_max_handful = [0,0,0]
-        
         skip_next = False
         for i in range(len(curr_game_data)):
             if curr_game_data[i] == ";":
