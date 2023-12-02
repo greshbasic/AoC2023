@@ -59,7 +59,6 @@ def aoc2a():
     return id_sum
     
 def aoc2b():
-    
     power = 0
     lines_stripped = []
    
