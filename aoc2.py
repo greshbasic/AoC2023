@@ -67,6 +67,63 @@ def aoc2b():
     # add that to power
     
     power = 0
+    lines_stripped = []
+   
+    with open('inputs/input2.txt','r') as file:
+        lines = [line for line in file]
+        
+    for line in lines:
+        lines_stripped.append(line.strip())
+    
+    for line in lines_stripped:
+        k += 1
+        for i in range(len(line)):
+            if line[i] == " ":
+                for j in range(i+1, len(line)):
+                    if line[j] == ":":
+                        curr_game_data = line[j+1:]
+                break
+            
+        elf_handful = [0,0,0]
+        current_max_handful = [0,0,0]
+        
+        skip_next = False
+        for i in range(len(curr_game_data)):
+            if curr_game_data[i] == ";":
+                elf_handful = [0,0,0]
+            else:
+                if skip_next:
+                    skip_next = False
+                    continue
+                if curr_game_data[i].isnumeric():
+
+                    if not curr_game_data[i+1].isnumeric():
+                        if curr_game_data[i+2] == "r":
+                            elf_handful[0] += int(curr_game_data[i])
+                            current_max_handful[0] = max(elf_handful[0], current_max_handful[0])
+                        elif curr_game_data[i+2] == "g":
+                            elf_handful[1] += int(curr_game_data[i])
+                            current_max_handful[1] = max(elf_handful[1], current_max_handful[1])
+                        elif curr_game_data[i+2] == "b":
+                            elf_handful[2] += int(curr_game_data[i])
+                            current_max_handful[2] = max(elf_handful[2], current_max_handful[2])
+                    else:
+                        if curr_game_data[i+3] == "r":
+                            elf_handful[0] += int(curr_game_data[i:i+2])
+                            current_max_handful[0] = max(elf_handful[0], current_max_handful[0])
+                            skip_next = True
+                        elif curr_game_data[i+3] == "g":
+                            elf_handful[1] += int(curr_game_data[i:i+2])
+                            current_max_handful[1] = max(elf_handful[1], current_max_handful[1])
+                            skip_next = True
+                        elif curr_game_data[i+3] == "b":
+                            elf_handful[2] += int(curr_game_data[i:i+2])
+                            current_max_handful[2] = max(elf_handful[2], current_max_handful[2])
+                            skip_next = True
+        print(current_max_handful)
+        current_power = current_max_handful[0] * current_max_handful[1] * current_max_handful[2]
+        power += current_power
+        
     return power
 
 if __name__ == "__main__":
