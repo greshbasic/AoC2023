@@ -1,7 +1,5 @@
 def aoc1a():
-    global sum1
     total = 0
-    line_count = 0
     with open('inputs/input1.txt','r') as file:
         lines = [line for line in file]
     for line in lines:
@@ -22,7 +20,6 @@ def aoc1a():
     return total
     
 def aoc1b():
-    global sum1
     total = 0
     i = 1
     fixed_lines_list = []
