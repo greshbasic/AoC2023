@@ -35,20 +35,20 @@ def aoc2a():
                 if curr_game_data[i].isnumeric():
                     if not curr_game_data[i+1].isnumeric():
                         if curr_game_data[i+2] == "r":
-                            elf_handful[0] += int(curr_game_data[i])
+                            elf_handful[0] = int(curr_game_data[i])
                         elif curr_game_data[i+2] == "g":
-                            elf_handful[1] += int(curr_game_data[i])
+                            elf_handful[1] = int(curr_game_data[i])
                         elif curr_game_data[i+2] == "b":
-                            elf_handful[2] += int(curr_game_data[i])
+                            elf_handful[2] = int(curr_game_data[i])
                     else:
                         if curr_game_data[i+3] == "r":
-                            elf_handful[0] += int(curr_game_data[i:i+2])
+                            elf_handful[0] = int(curr_game_data[i:i+2])
                             skip_next = True
                         elif curr_game_data[i+3] == "g":
-                            elf_handful[1] += int(curr_game_data[i:i+2])
+                            elf_handful[1] = int(curr_game_data[i:i+2])
                             skip_next = True
                         elif curr_game_data[i+3] == "b":
-                            elf_handful[2] += int(curr_game_data[i:i+2])
+                            elf_handful[2] = int(curr_game_data[i:i+2])
                             skip_next = True
                         
         if elf_handful[0] > elf_bag[0] or elf_handful[1] > elf_bag[1] or elf_handful[2] > elf_bag[2]:
@@ -70,7 +70,6 @@ def aoc2b():
         lines_stripped.append(line.strip())
     
     for line in lines_stripped:
-        k += 1
         for i in range(len(line)):
             if line[i] == " ":
                 for j in range(i+1, len(line)):
@@ -92,28 +91,28 @@ def aoc2b():
 
                     if not curr_game_data[i+1].isnumeric():
                         if curr_game_data[i+2] == "r":
-                            elf_handful[0] += int(curr_game_data[i])
+                            elf_handful[0] = int(curr_game_data[i])
                             current_max_handful[0] = max(elf_handful[0], current_max_handful[0])
                         elif curr_game_data[i+2] == "g":
-                            elf_handful[1] += int(curr_game_data[i])
+                            elf_handful[1] = int(curr_game_data[i])
                             current_max_handful[1] = max(elf_handful[1], current_max_handful[1])
                         elif curr_game_data[i+2] == "b":
-                            elf_handful[2] += int(curr_game_data[i])
+                            elf_handful[2] = int(curr_game_data[i])
                             current_max_handful[2] = max(elf_handful[2], current_max_handful[2])
                     else:
                         if curr_game_data[i+3] == "r":
-                            elf_handful[0] += int(curr_game_data[i:i+2])
+                            elf_handful[0] = int(curr_game_data[i:i+2])
                             current_max_handful[0] = max(elf_handful[0], current_max_handful[0])
                             skip_next = True
                         elif curr_game_data[i+3] == "g":
-                            elf_handful[1] += int(curr_game_data[i:i+2])
+                            elf_handful[1] = int(curr_game_data[i:i+2])
                             current_max_handful[1] = max(elf_handful[1], current_max_handful[1])
                             skip_next = True
                         elif curr_game_data[i+3] == "b":
-                            elf_handful[2] += int(curr_game_data[i:i+2])
+                            elf_handful[2] = int(curr_game_data[i:i+2])
                             current_max_handful[2] = max(elf_handful[2], current_max_handful[2])
                             skip_next = True
-        print(current_max_handful)
+
         current_power = current_max_handful[0] * current_max_handful[1] * current_max_handful[2]
         power += current_power
         
